@@ -30,11 +30,15 @@ function showUnderlinedWord() {
     showWordDiv.innerHTML = underlinedWord.join(' ');
 }
 
+function getNextLetter(letter) {
+    return String.fromCharCode(letter.charCodeAt(0) + 1);
+}
+
 function showAlphabetButtons() {
     let alphabetButtonsDiv = document.getElementById("alphabetButtons");
     alphabetButtonsDiv.innerHTML = "";
 
-    for (let letter = 'A'; letter <= 'Z'; letter = String.fromCharCode(letter.charCodeAt(0) + 1)) {
+    for (let letter = 'A'; letter <= 'Z'; letter = getNextLetter(letter)) {
         let letterButton = document.createElement("button");
         letterButton.textContent = letter;
         letterButton.onclick = function() { checkLetter(this.textContent); };
